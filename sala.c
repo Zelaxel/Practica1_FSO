@@ -3,6 +3,12 @@
 
 int* Sala_Teatro;
 
+int reservar_asiento(int id_persona){
+	if(Sala_Teatro==NULL){
+		return -1;
+	}
+}
+
 int asientos_ocupados(){
     if(strlen(Sala_Teatro) == NULL){
         return -1;
