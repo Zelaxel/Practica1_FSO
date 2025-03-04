@@ -13,3 +13,11 @@ int crear_sala(int capacidad){
     }
     return capacidad;
 }
+
+int eliminar_sala(){
+    if(strlen(Sala_Teatro) == NULL){
+        return -1;
+    }
+    free(Sala_Teatro);
+    return 0;
+}
