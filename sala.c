@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* Sala_Teatro;
+int* Sala_Teatro = NULL;
+int capacidad_total = 0;
 
 int reservar_asiento(int id_persona){
 	if(Sala_Teatro==NULL){
@@ -10,7 +11,7 @@ int reservar_asiento(int id_persona){
 }
 
 int asientos_ocupados(){
-    if(strlen(Sala_Teatro) == NULL){
+    if(Sala_Teatro == NULL){
         return -1;
     }
     int ocupados = 0;
@@ -23,16 +24,17 @@ int asientos_ocupados(){
 }
 
 int capacidad_sala(){
-    if(strlen(Sala_Teatro) == NULL){
+    if(Sala_Teatro == NULL){
         return -1;
     }
-    return strlen(Sala_Teatro);
+    return capacidad
 }
 
 int crear_sala(int capacidad){
-    if(strlen(Sala_Teatro) != NULL){
+    if(Sala_Teatro != NULL){
         return -1;
     }
+    capacidad_total = capacidad;
     Sala_Teatro = malloc(capacidad*sizeof(int));
     for(int i=0; i<=capacidad; i++){
         Sala_Teatro[i] = -1;
@@ -41,7 +43,7 @@ int crear_sala(int capacidad){
 }
 
 int eliminar_sala(){
-    if(strlen(Sala_Teatro) == NULL){
+    if(Sala_Teatro == NULL){
         return -1;
     }
     free(Sala_Teatro);
