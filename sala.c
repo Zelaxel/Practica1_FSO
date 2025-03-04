@@ -3,6 +3,26 @@
 
 int* Sala_Teatro;
 
+int asientos_ocupados(){
+    if(strlen(Sala_Teatro) == NULL){
+        return -1;
+    }
+    int ocupados = 0;
+    for(int i=0; i<=capacidad; i++){
+        if(Sala_Teatro[i] == -1){
+            ocupados++;
+        }
+    }
+    return ocupados;
+}
+
+int capacidad_sala(){
+    if(strlen(Sala_Teatro) == NULL){
+        return -1;
+    }
+    return strlen(Sala_Teatro);
+}
+
 int crear_sala(int capacidad){
     if(strlen(Sala_Teatro) != NULL){
         return -1;
