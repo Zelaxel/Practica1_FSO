@@ -7,4 +7,3 @@ int capacidad_sala();
 int crea_sala(int capacidad);
 int elimina_sala();
 
-negros
