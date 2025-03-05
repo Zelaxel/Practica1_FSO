@@ -7,7 +7,7 @@ int capacidad_total = 0;
 int reserva_asiento(int id_persona){
 	if(sala_teatro==NULL || id_persona < 1) return -1;
 	for(int i=0; i<capacidad_total; i++){
-		if(sala_teatro[i] > -1){
+		if(sala_teatro[i] == -1){
 			sala_teatro[i] = id_persona;
 			return i;
 		}
