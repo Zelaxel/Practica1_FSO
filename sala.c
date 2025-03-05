@@ -6,7 +6,7 @@ int capacidad_total = 0;
 
 int reservar_asiento(int id_persona){
 	if(Sala_Teatro==NULL) return -1;
-	for(int i=0; i<capacidad; i++){
+	for(int i=0; i<capacidad_total; i++){
 		if(Sala_Teatro[i] > -1){
 			Sala_Teatro[i] = id_persona;
 			return i;
@@ -36,7 +36,7 @@ int asientos_ocupados(){
         return -1;
     }
     int ocupados = 0;
-    for(int i=0; i<capacidad; i++){
+    for(int i=0; i<capacidad_total; i++){
         if(Sala_Teatro[i] == -1){
             ocupados++;
         }
@@ -46,14 +46,14 @@ int asientos_ocupados(){
 
 int asientos_libres(){
 	if(Sala_Teatro==NULL) return -1;
-	return capacidad - asientos_ocupados();
+	return capacidad_total - asientos_ocupados();
 }
 
 int capacidad_sala(){
     if(Sala_Teatro == NULL){
         return -1;
     }
-    return capacidad
+    return capacidad_total
 }
 
 int crear_sala(int capacidad){
