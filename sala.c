@@ -26,8 +26,8 @@ int libera_asiento(int id_asiento){
 
 int estado_asiento(int id_asiento){
 	if(sala_teatro==NULL || id_asiento >= capacidad_total || id_asiento < 0) return -1;
-	if(sala_teatro[id_asiento] > -1) return 0;
-	return -1;
+	if(sala_teatro[id_asiento] == -1) return 0;
+	return sala_teatro[id_asiento];
 }
 
 int asientos_ocupados(){
