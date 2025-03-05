@@ -1,5 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
+#include "sala.c"
+#include "sala.h"
 
 #define DebeSerCierto(x)	assert(x)
 #define DebeSerFalso(x)		assert(!(x))
