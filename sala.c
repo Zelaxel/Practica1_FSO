@@ -53,7 +53,7 @@ int capacidad_sala(){
     if(Sala_Teatro == NULL){
         return -1;
     }
-    return capacidad_total
+    return capacidad_total;
 }
 
 int crear_sala(int capacidad){
