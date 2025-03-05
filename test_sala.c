@@ -45,7 +45,7 @@ void ejecuta_tests ()
 	// Añadir nuevos tests 
 }
 
-main()
+int main()
 {
 	puts("Iniciando tests...");
 	
