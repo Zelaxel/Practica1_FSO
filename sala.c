@@ -75,3 +75,7 @@ int elimina_sala(){
     free(Sala_Teatro);
     return 0;
 }
+
+int capacidad(){
+	return capacidad_total;
+}

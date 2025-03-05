@@ -6,4 +6,4 @@ int asientos_ocupados();
 int capacidad_sala();
 int crea_sala(int capacidad);
 int elimina_sala();
-
+int capacidad();
