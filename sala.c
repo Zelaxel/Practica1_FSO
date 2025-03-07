@@ -83,6 +83,7 @@ int elimina_sala(){
         return -1;
     }
     free(sala_teatro);
+    sala_teatro=NULL;
     return 0;
 }
 

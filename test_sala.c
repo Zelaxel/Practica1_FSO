@@ -19,6 +19,24 @@ void FIN_TEST (const char* titulo_test)
   printf ("********** hecho\n");
 }
 
+void test_NoHaySala()
+{	
+	#define CAPACIDAD 500
+	#define ID_1 1500
+
+	INICIO_TEST("No hay sala");
+	DebeSerCierto(reserva_asiento(ID_1)==-1);
+	DebeSerCierto(libera_asiento(ID_1)==-1);
+	DebeSerCierto(estado_asiento(ID_1)==-1);
+	DebeSerCierto(asientos_ocupados()==-1);
+	DebeSerCierto(asientos_libres()==-1);
+	DebeSerCierto(capacidad_sala()==-1);
+	DebeSerCierto(elimina_sala()==-1);
+	DebeSerCierto(crea_sala(CAPACIDAD)==CAPACIDAD);
+	DebeSerCierto(crea_sala(CAPACIDAD)==-1);
+	DebeSerCierto(elimina_sala()==0);
+	FIN_TEST("No hay sala");
+}
 
 void test_ReservaBasica()
 {
@@ -38,11 +56,11 @@ void test_ReservaBasica()
 	FIN_TEST("Reserva básica");
 }
 
-
 void ejecuta_tests ()
 {
 	test_ReservaBasica();
 	// Añadir nuevos tests 
+	test_NoHaySala();	
 }
 
 int main()
