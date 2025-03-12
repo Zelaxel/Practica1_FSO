@@ -41,12 +41,15 @@ int estado_asiento(int id_asiento){
 }
 
 int asientos_ocupados(){
+    //Falla si la sala no esta creada o si el id del asiento se sale del espacio.
     if(sala_teatro == NULL){
         return -1;
     }
     int ocupados = 0;
+    // Inicializamos el contador de asientos ocupados a 0
     for(int i=0; i<capacidad_total; i++){
-        if(sala_teatro[i] == -1){
+        if(sala_teatro[i] != -1){
+            // Si el asiento no esta libre, incrementamos la variable "ocupados"
             ocupados++;
         }
     }
@@ -60,6 +63,7 @@ int asientos_libres(){
 }
 
 int capacidad_sala(){
+    //Falla si la sala no esta creada o si el id del asiento se sale del espacio.
     if(sala_teatro == NULL){
         return -1;
     }
@@ -67,21 +71,27 @@ int capacidad_sala(){
 }
 
 int crea_sala(int capacidad){
+    //Falla si la sala no esta creada o si el id del asiento se sale del espacio.
     if(sala_teatro != NULL || capacidad < 1){
         return -1;
     }
     capacidad_total = capacidad;
+    // Creamos un puntero en memoria, reservando espacio para almacenar
+    // los asientos de la sala. Lo ajustamos en base al tamaño del entero.
     sala_teatro = (int*)malloc(capacidad*sizeof(int));
     for(int i=0; i<capacidad; i++){
+    	// A cada asiento de la sala le asignamos -1 para indicar de que estan libres
         sala_teatro[i] = -1;
     }
     return capacidad;
 }
 
 int elimina_sala(){
+    //Falla si la sala no esta creada o si el id del asiento se sale del espacio.
     if(sala_teatro == NULL){
         return -1;
     }
+    // Liberamos el espacio reservado en memoria y inicializamos nuevamente "sala_teatro" a NULL.
     free(sala_teatro);
     sala_teatro=NULL;
     return 0;
