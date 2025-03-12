@@ -46,7 +46,7 @@ void test_ReservaBasica()
 
 	INICIO_TEST("Reserva básica");
 	crea_sala(CAPACIDAD);
-	DebeSerCierto(capacidad()==CAPACIDAD);
+	DebeSerCierto(capacidad_sala()==CAPACIDAD);
 	DebeSerCierto((mi_asiento=reserva_asiento(ID_1))>=0);
 	DebeSerCierto((asientos_libres()+asientos_ocupados())==CAPACIDAD);
 	DebeSerCierto(estado_asiento(mi_asiento)>0);
@@ -56,11 +56,50 @@ void test_ReservaBasica()
 	FIN_TEST("Reserva básica");
 }
 
+void test_liberaAsiento()
+{
+	int mi_asiento;
+
+	#define CAPACIDAD 500
+	#define ID_1 1500
+	#define ID_2 1600
+
+	INICIO_TEST("Libera asiento");
+	crea_sala(CAPACIDAD);
+	DebeSerCierto(capacidad_sala()==CAPACIDAD);
+	DebeSerCierto(asientos_libres()==500);
+	DebeSerCierto(asientos_ocupados()==0);
+	
+	// Persona 1 reserva asiento.
+	mi_asiento=reserva_asiento(ID_1);
+	DebeSerCierto(estado_asiento(mi_asiento)==ID_1);
+	DebeSerCierto(asientos_libres()==499);
+	DebeSerCierto(asientos_ocupados()==1);
+	DebeSerCierto(libera_asiento(mi_asiento)==ID_1);
+	DebeSerCierto(estado_asiento(mi_asiento)==0);
+	DebeSerCierto(asientos_libres()==500);
+	DebeSerCierto(asientos_ocupados()==0);
+	
+	// Persona 2 reserva el mismo asiento.
+	DebeSerCierto(reserva_asiento(ID_2) == mi_asiento);
+	DebeSerCierto(estado_asiento(mi_asiento)==ID_2);
+	DebeSerCierto(asientos_libres()==499);
+	DebeSerCierto(asientos_ocupados()==1);
+	DebeSerCierto(libera_asiento(mi_asiento)==ID_2);
+	DebeSerCierto(estado_asiento(mi_asiento)==0);
+	DebeSerCierto(asientos_libres()==500);
+	DebeSerCierto(asientos_ocupados()==0);
+	elimina_sala();
+	
+	FIN_TEST("Libera asiento");
+}
+
 void ejecuta_tests ()
 {
 	test_ReservaBasica();
 	// Añadir nuevos tests 
-	test_NoHaySala();	
+	test_NoHaySala();
+	test_liberaAsiento();
 }
 
 int main()
