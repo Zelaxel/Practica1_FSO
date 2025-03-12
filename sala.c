@@ -87,6 +87,3 @@ int elimina_sala(){
     return 0;
 }
 
-int capacidad(){
-	return capacidad_total;
-}
